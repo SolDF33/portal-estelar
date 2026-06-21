@@ -1,0 +1,235 @@
+/* ================================================= */
+/* 1. VARIABLES Y CONFIGURACIÓN BASE               */
+/* ================================================= */
+:root {
+    --crema: #fdfaf5;      
+    --crema-oscura: #f5f1e9; 
+    --azul: #4a7c9c;       
+    --dorado: #b89655;     
+    --texto: #444444;      
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- 1. RESET GENERAL (Asegúrate de tener esto al inicio) --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita desplazamientos laterales */
+}
+
+/* --- LA PORTADA (HERO) --- */
+.hero {
+    width: 100%;
+    background-color: #f6f3ed; /* El color crema exacto del fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    margin: 0;
+}
+
+.main-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* Esto evita que se corte cualquier parte del logo */
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 40vh; /* En móviles no necesita ser tan alta */
+        padding: 10px;
+    }
+}
+
+/* ================================================= */
+/* 3. TIPOGRAFÍAS Y TÍTULOS                         */
+/* ================================================= */
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--azul);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-title-left {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: var(--azul);
+}
+
+/* ================================================= */
+/* 4. SECCIONES Y CONTENEDORES                      */
+/* ================================================= */
+.container {
+    padding: 80px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- SECCIÓN SOBRE MÍ --- */
+.sobre-mi-section {
+    background-color: var(--crema);
+}
+
+.sobre-mi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.foto-perfil {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--crema-oscura);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.sobre-mi-texto p {
+    margin-bottom: 22px;
+    font-size: 1.05rem;
+}
+
+.frase-cierre {
+    margin-top: 35px;
+    padding: 25px;
+    background-color: var(--crema-oscura);
+    border-left: 4px solid var(--dorado);
+    font-style: italic;
+    color: var(--azul);
+}
+
+/* --- SESIONES (SINTONÍA DIRECTA) --- */
+.bg-crema-oscura {
+    background-color: var(--crema-oscura);
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 80px 10%;
+}
+
+/* --- SESIONES (GRILLA ALINEADA) --- */
+.grid-servicios {
+    display: grid !important;
+    /* Esto fuerza 3 columnas iguales siempre que haya espacio */
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 30px !important;
+    margin-top: 50px !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-items: stretch !important; /* Hace que todas las tarjetas midan lo mismo de alto */
+}
+
+.card {
+    background: var(--blanco) !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    transition: 0.4s !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content:空间-between !important; /* Empuja el botón siempre al final */
+    border-radius: 4px !important;
+}
+
+/* Ajuste para que en tablets o pantallas chicas se pongan en 1 o 2 columnas */
+@media (max-width: 992px) {
+    .grid-servicios {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    }
+}
+
+.img-terapia {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.precio {
+    font-size: 1.6rem;
+    color: var(--dorado);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* ================================================= */
+/* 5. BOTONES Y FOOTER                              */
+/* ================================================= */
+.btn, .btn-gold {
+    display: inline-block;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn { background-color: var(--azul); color: white; border: none; }
+.btn-gold { border: 1px solid var(--dorado); color: var(--dorado); }
+.btn:hover { background-color: var(--dorado); }
+
+.footer-estelar {
+    padding: 60px 10%;
+    background-color: var(--azul);
+    color: white;
+    text-align: center;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+/* ================================================= */
+/* 6. RESPONSIVO (MÓVILES)                           */
+/* ================================================= */
+@media (max-width: 900px) {
+    .sobre-mi-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero {
+        height: 45vh !important; /* Más baja en celulares */
+        background-size: 90% !important; /* Logo un poco más chico para que respire */
+    }
+}
+.btn-proximamente {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent; /* Sin fondo para diferenciarlo */
+    color: var(--dorado);
+    border: 1px solid var(--dorado); /* Solo el borde dorado */
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    cursor: default; /* Cambia la manito por la flecha normal */
+    opacity: 0.7; /* Lo hace ver un poco más sutil */
+}
